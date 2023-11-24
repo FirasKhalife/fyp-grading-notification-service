@@ -1,0 +1,37 @@
+spring:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5434/notification-db
+        username: admin
+        password: admin
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: admin
+        password: admin
+
+        retry-queues-ttl: 2000
+        retry-max-count: 3
+
+        notification:
+            queue: "notification-queue"
+            exchange: "notification-exchange"
+            routing-key: "notification-key"
+
+        retry-notification:
+            queue: "retry-notification-queue"
+            exchange: "retry-notification-exchange"
+            routing-key: "retry-notification-key"
+
+        dead-letter:
+            queue: "dead-queue"
+            exchange: "dead-exchange"
+            routing-key: "dead-key"
+
+server:
+    port: 8084
