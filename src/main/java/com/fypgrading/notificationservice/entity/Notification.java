@@ -1,4 +1,4 @@
-package com.fypgrading.notificationservice.service.entity;
+package com.fypgrading.notificationservice.entity;
 
 import com.fypgrading.notificationservice.service.enums.AssessmentEnum;
 import jakarta.persistence.*;

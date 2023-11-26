@@ -1,9 +1,11 @@
 package com.fypgrading.notificationservice.service.enums;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public enum AssessmentEnum {
 
     @JsonProperty("ORAL_PROPOSAL")
@@ -12,16 +14,16 @@ public enum AssessmentEnum {
     @JsonProperty("PROGRESS")
     PROGRESS,
 
-    @JsonProperty("PROGRESS_REPORT")
+    @JsonProperty("ADVISOR")
     ADVISOR,
 
     @JsonProperty("FINAL_REPORT")
     FINAL_REPORT,
 
     @JsonProperty("FINAL_PRESENTATION")
-    FINAL_PRESENTATION,
+    FINAL_PRESENTATION;
 
-    //for readability purposes
-    @JsonProperty("ALL")
-    ALL
+    public Integer getEnumId() {
+        return ordinal() + 1;
+    }
 }

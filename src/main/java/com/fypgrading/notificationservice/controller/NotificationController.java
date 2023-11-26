@@ -3,9 +3,7 @@ package com.fypgrading.notificationservice.controller;
 import com.fypgrading.notificationservice.service.NotificationService;
 import com.fypgrading.notificationservice.service.dto.NotificationDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,18 @@ public class NotificationController {
     public ResponseEntity<List<NotificationDTO>> getNotifications() {
         List<NotificationDTO> notifications = notificationService.getNotifications();
         return ResponseEntity.ok().body(notifications);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> readNotification(@PathVariable Integer id) {
+        notificationService.readNotification(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/")
+    public ResponseEntity<Void> readAllNotifications() {
+        notificationService.readAllNotifications();
+        return ResponseEntity.ok().build();
     }
 
 }

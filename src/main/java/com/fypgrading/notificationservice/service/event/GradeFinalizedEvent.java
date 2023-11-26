@@ -1,6 +1,5 @@
 package com.fypgrading.notificationservice.service.event;
 
-import com.fypgrading.notificationservice.service.dto.TeamDTO;
 import com.fypgrading.notificationservice.service.enums.AssessmentEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class GradeFinalizedEvent {
 
-    private TeamDTO team;
+    private Integer teamId;
 
     private AssessmentEnum assessment;
 
