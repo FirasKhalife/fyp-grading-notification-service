@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Notification {
+public class Notification extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
