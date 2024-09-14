@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class NotificationDTO {
 
-    private Integer id;
+    private Long id;
 
-    private Integer teamId;
+    private Long teamId;
 
     private AssessmentEnum assessment;
 

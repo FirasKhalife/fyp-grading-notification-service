@@ -25,7 +25,7 @@ public class NotificationController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> readNotification(@PathVariable Integer id) {
+    public ResponseEntity<Void> readNotification(@PathVariable Long id) {
         notificationService.readNotification(id);
         return ResponseEntity.ok().build();
     }

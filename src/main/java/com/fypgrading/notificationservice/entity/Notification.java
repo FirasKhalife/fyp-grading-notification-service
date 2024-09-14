@@ -16,9 +16,9 @@ public class Notification extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    private Integer teamId;
+    private Long teamId;
 
     @Enumerated(EnumType.STRING)
     private AssessmentEnum assessment;

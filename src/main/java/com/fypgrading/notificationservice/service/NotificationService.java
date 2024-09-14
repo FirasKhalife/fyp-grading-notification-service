@@ -22,7 +22,7 @@ public class NotificationService {
         this.notificationMapper = notificationMapper;
     }
 
-    public Notification getNotificationById(Integer id) {
+    public Notification getNotificationById(Long id) {
         return notificationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Notification not found"));
     }
@@ -41,7 +41,7 @@ public class NotificationService {
                 .toList();
     }
 
-    public void readNotification(Integer id) {
+    public void readNotification(Long id) {
         Notification notification = getNotificationById(id);
         notification.setRead(true);
         notificationRepository.save(notification);
