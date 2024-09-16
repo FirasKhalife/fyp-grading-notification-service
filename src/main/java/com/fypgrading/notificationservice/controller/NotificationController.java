@@ -3,19 +3,32 @@ package com.fypgrading.notificationservice.controller;
 import com.fypgrading.notificationservice.service.NotificationService;
 import com.fypgrading.notificationservice.service.dto.NotificationDTO;
 import com.fypgrading.notificationservice.service.dto.NotificationListDTO;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RefreshScope
 @RestController
 @RequestMapping("/api/notifications")
 public class NotificationController {
 
     private final NotificationService notificationService;
+    private final String buildVersion;
 
-    public NotificationController(NotificationService notificationService) {
+    public NotificationController(
+        NotificationService notificationService,
+        @Value("${build.version}") String buildVersion
+    ) {
         this.notificationService = notificationService;
+        this.buildVersion = buildVersion;
+    }
+
+    @GetMapping("/build-version")
+    public ResponseEntity<String> getBuildVersion() {
+        return ResponseEntity.ok().body(buildVersion);
     }
 
     @GetMapping("/")

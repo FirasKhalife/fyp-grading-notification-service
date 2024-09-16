@@ -1,43 +1,47 @@
 logging:
-    level:
-        root: INFO
+  level:
+    root: INFO
 
 spring:
-    application:
-        name: notification-service
+  application:
+    name: notification
 
-    datasource:
-        url: ${DATABASE_URL}
-        username: ${DATABASE_USERNAME}
-        password: ${DATABASE_PASSWORD}
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
 
-    liquibase:
+  config:
+    import: configserver:${CONFIG_SERVER_URL}
+
+  liquibase:
+    enabled: true
+    change-log: classpath:liquibase/master.xml
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+
+# expose /actuator endpoints over HTTP
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  # /actuator/health
+  # /actuator/health/liveness
+  # /actuator/health/readiness
+  endpoint:
+    health:
+      probes:
         enabled: true
-        change-log: classpath:liquibase/master.xml
-
-    rabbitmq:
-        host: ${RABBITMQ_HOST}
-        port: ${RABBITMQ_PORT}
-        username: ${RABBITMQ_USERNAME}
-        password: ${RABBITMQ_PASSWORD}
-
-        retry-queues-ttl: 2000
-        retry-max-count: 3
-
-        notification:
-            queue: "notification-queue"
-            exchange: "notification-exchange"
-            routing-key: "notification-key"
-
-        retry-notification:
-            queue: "retry-notification-queue"
-            exchange: "retry-notification-exchange"
-            routing-key: "retry-notification-key"
-
-        dead-letter:
-            queue: "dead-queue"
-            exchange: "dead-exchange"
-            routing-key: "dead-key"
+  health:
+    readinessstate:
+      enabled: true
+    livenessstate:
+      enabled: true
 
 #eureka:
 #    client:
@@ -50,4 +54,4 @@ spring:
 #        lease-renewal-interval-in-seconds: 1
 
 server:
-    port: ${PORT}
+  port: ${PORT}
