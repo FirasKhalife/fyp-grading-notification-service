@@ -16,6 +16,6 @@ RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-COPY --from=build /app/target/notification-service-0.0.1-SNAPSHOT.jar /app/notification.jar
+COPY --from=build /app/target/notification-service-0.0.1-SNAPSHOT.jar /app/notification-service.jar
 
-ENTRYPOINT ["java", "-jar", "notification.jar"]
+ENTRYPOINT ["java", "-jar", "notification-service.jar"]

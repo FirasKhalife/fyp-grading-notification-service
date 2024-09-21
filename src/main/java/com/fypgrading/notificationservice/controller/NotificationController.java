@@ -2,7 +2,6 @@ package com.fypgrading.notificationservice.controller;
 
 import com.fypgrading.notificationservice.service.NotificationService;
 import com.fypgrading.notificationservice.service.dto.NotificationDTO;
-import com.fypgrading.notificationservice.service.dto.NotificationListDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.ResponseEntity;
@@ -32,9 +31,9 @@ public class NotificationController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<NotificationListDTO> getNotifications() {
+    public ResponseEntity<List<NotificationDTO>> getNotifications() {
         List<NotificationDTO> notifications = notificationService.getNotifications();
-        return ResponseEntity.ok().body(new NotificationListDTO(notifications));
+        return ResponseEntity.ok().body(notifications);
     }
 
     @PutMapping("/{id}")
