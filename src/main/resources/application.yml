@@ -11,6 +11,11 @@ logging:
   level:
     root: INFO
 
+management:
+  metrics:
+    tags:
+      application: ${SPRING_APPLICATION_NAME}
+
 spring:
   datasource:
     url: ${DATABASE_URL}
