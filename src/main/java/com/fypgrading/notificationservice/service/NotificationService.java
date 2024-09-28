@@ -3,31 +3,28 @@ package com.fypgrading.notificationservice.service;
 import com.fypgrading.notificationservice.entity.Notification;
 import com.fypgrading.notificationservice.repository.NotificationRepository;
 import com.fypgrading.notificationservice.service.dto.NotificationDTO;
+import com.fypgrading.notificationservice.service.event.GradeFinalizedEvent;
 import com.fypgrading.notificationservice.service.mapper.NotificationMapper;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class NotificationService {
 
     private final NotificationRepository notificationRepository;
     private final NotificationMapper notificationMapper;
 
-    public NotificationService(NotificationRepository notificationRepository,
-                               NotificationMapper notificationMapper
-    ) {
-        this.notificationRepository = notificationRepository;
-        this.notificationMapper = notificationMapper;
-    }
-
     public Notification getNotificationById(Long id) {
         return notificationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Notification not found"));
     }
 
-    public void saveNotification(NotificationDTO notification) {
+    public void saveGradeFinalizedNotification(GradeFinalizedEvent event) {
+        NotificationDTO notification = new NotificationDTO(event);
         notificationRepository.save(notificationMapper.toEntity(notification));
     }
 

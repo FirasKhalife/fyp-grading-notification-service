@@ -36,6 +36,29 @@ spring:
     port: ${RABBITMQ_PORT}
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
+    connection-timeout: 10s
+
+  cloud:
+    function:
+      definition: handleNotification
+    stream:
+      bindings:
+        handleNotification-in-0:
+          destination: notification-queue
+          group: notification-group
+          consumer:
+            max-attempts: 5
+            back-off-initial-interval: 1000
+            back-off-multiplier: 2.0
+            back-off-max-interval: 10000
+      rabbit:
+        bindings:
+          handleNotification-in-0:
+            consumer:
+              auto-bind-dlq: true
+              dead-letter-queue-name: dead-letter-queue
+              dead-letter-exchange: dead-letter-exchange
+              dead-letter-routing-key: dead-letter-routing-key
 
   security:
     oauth2:
