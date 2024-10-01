@@ -18,13 +18,26 @@ public class Notification extends Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private Long teamId;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private AssessmentEnum assessment;
 
     private LocalDateTime gradeFinalizedAt;
 
     private boolean isRead = false;
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Notification notification)) return false;
+        return id.equals(notification.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 
 }
