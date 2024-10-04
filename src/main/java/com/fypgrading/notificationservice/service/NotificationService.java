@@ -33,14 +33,14 @@ public class NotificationService {
                 .stream()
                 .map(notificationMapper::toDTO)
                 .sorted((n1, n2) ->
-                                n2.getGradeFinalizedAt() == null ? 1 :
-                                        n2.getGradeFinalizedAt().compareTo(n1.getGradeFinalizedAt()))
+                    n2.getGradeFinalizedAt() == null ? 1 :
+                        n2.getGradeFinalizedAt().compareTo(n1.getGradeFinalizedAt()))
                 .toList();
     }
 
-    public void readNotification(Long id) {
+    public void updateNotification(Long id, boolean read) {
         Notification notification = getNotificationById(id);
-        notification.setRead(true);
+        notification.setRead(read);
         notificationRepository.save(notification);
     }
 
