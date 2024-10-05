@@ -1,0 +1,5 @@
+logging:
+  level:
+    sql: DEBUG
+    web: DEBUG
+    com.fypgrading.notificationservice: DEBUG

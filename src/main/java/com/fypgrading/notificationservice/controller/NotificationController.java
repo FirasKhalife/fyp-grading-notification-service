@@ -2,31 +2,28 @@ package com.fypgrading.notificationservice.controller;
 
 import com.fypgrading.notificationservice.service.NotificationService;
 import com.fypgrading.notificationservice.service.dto.NotificationDTO;
-import com.fypgrading.notificationservice.service.dto.NotificationListDTO;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/notifications")
 public class NotificationController {
 
     private final NotificationService notificationService;
 
-    public NotificationController(NotificationService notificationService) {
-        this.notificationService = notificationService;
-    }
-
     @GetMapping("/")
-    public ResponseEntity<NotificationListDTO> getNotifications() {
+    public ResponseEntity<List<NotificationDTO>> getNotifications() {
         List<NotificationDTO> notifications = notificationService.getNotifications();
-        return ResponseEntity.ok().body(new NotificationListDTO(notifications));
+        return ResponseEntity.ok().body(notifications);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> readNotification(@PathVariable Integer id) {
-        notificationService.readNotification(id);
+    public ResponseEntity<Void> updateNotification(@PathVariable Long id, @RequestParam boolean read) {
+        notificationService.updateNotification(id, read);
         return ResponseEntity.ok().build();
     }
 

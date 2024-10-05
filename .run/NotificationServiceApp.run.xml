@@ -1,0 +1,24 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="NotificationServiceApp" type="Application" factoryName="Application">
+    <envs>
+      <env name="REGISTRY_SERVER_URL" value="http://localhost:8761/eureka/" />
+      <env name="DATABASE_URL" value="jdbc:postgresql://localhost:5434/notification-db" />
+      <env name="DATABASE_USERNAME" value="admin" />
+      <env name="DATABASE_PASSWORD" value="admin" />
+      <env name="RABBITMQ_HOST" value="localhost" />
+      <env name="RABBITMQ_PORT" value="5672" />
+      <env name="RABBITMQ_USERNAME" value="admin" />
+      <env name="RABBITMQ_PASSWORD" value="admin" />
+      <env name="AUTH_SERVER_URL" value="http://localhost:7080/realms/master" />
+      <env name="SPRING_APPLICATION_NAME" value="notification-service" />
+      <env name="SPRING_PROFILES_ACTIVE" value="dev" />
+      <env name="BUILD_VERSION" value="1.0" />
+      <env name="PORT" value="8086" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.fypgrading.notificationservice.NotificationServiceApplication" />
+    <module name="notification-service" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
