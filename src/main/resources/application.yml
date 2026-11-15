@@ -1,70 +1,83 @@
-build:
-  version: ${BUILD_VERSION}
-
-info:
-  app:
-    name: ${SPRING_APPLICATION_NAME}
-    description: "FYP Grading project - Notification Microservice"
-    version: ${BUILD_VERSION}
-
-logging:
-  level:
-    root: INFO
-
-management:
-  metrics:
-    tags:
-      application: ${SPRING_APPLICATION_NAME}
-
 spring:
-  datasource:
-    url: ${DATABASE_URL}
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-
-  # this will in fact not be used as the service will register with eureka
-  # and get its configuration from the config server dynamically in the bootstrap phase (bootstrap.yml)
+  application:
+    name: notification-service
   config:
     import: "optional:configserver:"
-
-  liquibase:
-    enabled: true
-    change-log: classpath:liquibase/master.xml
-
-  rabbitmq:
-    host: ${RABBITMQ_HOST}
-    port: ${RABBITMQ_PORT}
-    username: ${RABBITMQ_USERNAME}
-    password: ${RABBITMQ_PASSWORD}
-    connection-timeout: 10s
-
   cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      fail-fast: false
     function:
-      definition: handleNotification
+      definition: activity;notifications
     stream:
       bindings:
-        handleNotification-in-0:
-          destination: notification-queue
-          group: notification-group
-          consumer:
-            max-attempts: 5
-            back-off-initial-interval: 1000
-            back-off-multiplier: 2.0
-            back-off-max-interval: 10000
+        activity-in-0:
+          destination: assay.activity
+          group: notification-service
+          consumer: {max-attempts: 4, back-off-initial-interval: 500, back-off-multiplier: 2.0}
+        notifications-in-0:
+          destination: assay.notifications
+          group: notification-service
+          consumer: {max-attempts: 4, back-off-initial-interval: 500, back-off-multiplier: 2.0}
       rabbit:
-        bindings:
-          handleNotification-in-0:
-            consumer:
-              auto-bind-dlq: true
-              dead-letter-queue-name: dead-letter-queue
-              dead-letter-exchange: dead-letter-exchange
-              dead-letter-routing-key: dead-letter-routing-key
-
+        default:
+          consumer:
+            auto-bind-dlq: true   # each queue gets its own <queue>.dlq
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/notification-db}
+    username: ${DATABASE_USERNAME:admin}
+    password: ${DATABASE_PASSWORD:admin}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+  mvc:
+    async:
+      request-timeout: 31m
   security:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${AUTH_SERVER_URL}/protocol/openid-connect/certs
+          jwk-set-uri: ${AUTH_SERVER_URL:http://localhost:7080/realms/assay}/protocol/openid-connect/certs
 
 server:
-  port: ${PORT}
+  port: ${PORT:8080}
+  shutdown: graceful
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${REGISTRY_SERVER_URL:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "Assay notification service: personal notifications, activity feed, live stream"
+    version: ${BUILD_VERSION:dev}

@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2026-11-15-01-drop-legacy-schema
+      author: assay
+      comment: The pre-Assay notification table was global (one read state shared by every admin).
+      changes:
+        - sql:
+            sql: DROP TABLE IF EXISTS notification CASCADE
+  - changeSet:
+      id: 2026-11-15-02-notification-and-activity
+      author: assay
+      changes:
+        - createTable:
+            tableName: notification
+            columns:
+              - column: {name: id, type: uuid, constraints: {primaryKey: true}}
+              - column: {name: demo_session, type: varchar(36), constraints: {nullable: false}}
+              - column: {name: recipient_id, type: uuid, constraints: {nullable: false}}
+              - column: {name: event_key, type: varchar(200), constraints: {nullable: false}}
+              - column: {name: type, type: varchar(32), constraints: {nullable: false}}
+              - column: {name: text, type: varchar(500), constraints: {nullable: false}}
+              - column: {name: created_at, type: timestamp with time zone, constraints: {nullable: false}}
+              - column: {name: is_read, type: boolean, constraints: {nullable: false}}
+              - column: {name: link_kind, type: varchar(20), constraints: {nullable: false}}
+              - column: {name: link_team_id, type: uuid}
+              - column: {name: link_assessment, type: varchar(32)}
+        - addUniqueConstraint:
+            tableName: notification
+            constraintName: uq_notification_event_recipient
+            columnNames: demo_session, event_key, recipient_id
+        - createIndex:
+            tableName: notification
+            indexName: ix_notification_inbox
+            columns:
+              - column: {name: demo_session}
+              - column: {name: recipient_id}
+              - column: {name: created_at}
+        - createTable:
+            tableName: activity
+            columns:
+              - column: {name: id, type: uuid, constraints: {primaryKey: true}}
+              - column: {name: demo_session, type: varchar(36), constraints: {nullable: false}}
+              - column: {name: kind, type: varchar(32), constraints: {nullable: false}}
+              - column: {name: actor_id, type: uuid}
+              - column: {name: actor_name, type: varchar(120), constraints: {nullable: false}}
+              - column: {name: text, type: varchar(500), constraints: {nullable: false}}
+              - column: {name: occurred_at, type: timestamp with time zone, constraints: {nullable: false}}
+              - column: {name: link_kind, type: varchar(20), constraints: {nullable: false}}
+              - column: {name: link_team_id, type: uuid}
+              - column: {name: link_assessment, type: varchar(32)}
+        - createIndex:
+            tableName: activity
+            indexName: ix_activity_feed
+            columns:
+              - column: {name: demo_session}
+              - column: {name: occurred_at}
