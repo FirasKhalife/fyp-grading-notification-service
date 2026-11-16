@@ -23,17 +23,31 @@ public class EventConsumers {
     @Bean
     Consumer<ActivityEvent> activity(ActivityService activity) {
         return e -> {
-            DemoSession.runAs(UUID.fromString(e.demoSession()), () -> activity.record(idOf(e.demoSession(), e.eventId()),
-                    e.kind(), e.actorId() == null ? null : UUID.fromString(e.actorId()), e.actorName(), e.text(), e.at(),
-                    link(e.link())));
+            DemoSession.runAs(
+                    UUID.fromString(e.demoSession()),
+                    () -> activity.record(
+                            idOf(e.demoSession(), e.eventId()),
+                            e.kind(),
+                            e.actorId() == null ? null : UUID.fromString(e.actorId()),
+                            e.actorName(),
+                            e.text(),
+                            e.at(),
+                            link(e.link())));
         };
     }
 
     @Bean
     Consumer<NotificationEvent> notifications(NotificationService notifications) {
         return e -> {
-            DemoSession.runAs(UUID.fromString(e.demoSession()), () -> notifications.deliver(e.eventKey(), e.type(),
-                    e.text(), e.at(), link(e.link()), e.recipients().stream().map(UUID::fromString).toList()));
+            DemoSession.runAs(
+                    UUID.fromString(e.demoSession()),
+                    () -> notifications.deliver(
+                            e.eventKey(),
+                            e.type(),
+                            e.text(),
+                            e.at(),
+                            link(e.link()),
+                            e.recipients().stream().map(UUID::fromString).toList()));
         };
     }
 
@@ -53,15 +67,25 @@ public class EventConsumers {
     }
 
     /** Published by evaluation-service and admin-service on {@code assay.activity}. */
-    public record ActivityEvent(String eventId, String demoSession, String kind, String actorId, String actorName,
-                                String text, Instant at, EventLink link) {
-    }
+    public record ActivityEvent(
+            String eventId,
+            String demoSession,
+            String kind,
+            String actorId,
+            String actorName,
+            String text,
+            Instant at,
+            EventLink link) {}
 
     /** Published by admin-service on {@code assay.notifications}, with the recipients already resolved. */
-    public record NotificationEvent(String eventKey, String demoSession, NotificationType type, String text, Instant at,
-                                    EventLink link, List<String> recipients) {
-    }
+    public record NotificationEvent(
+            String eventKey,
+            String demoSession,
+            NotificationType type,
+            String text,
+            Instant at,
+            EventLink link,
+            List<String> recipients) {}
 
-    public record EventLink(String kind, String teamId, String assessment) {
-    }
+    public record EventLink(String kind, String teamId, String assessment) {}
 }

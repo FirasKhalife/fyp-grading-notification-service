@@ -43,11 +43,17 @@ public class Notification extends AssignedIdEntity {
     @Embedded
     private Link link;
 
-    protected Notification() {
-    }
+    protected Notification() {}
 
-    public Notification(UUID id, UUID recipientId, String eventKey, NotificationType type, String text,
-            Instant createdAt, boolean read, Link link) {
+    public Notification(
+            UUID id,
+            UUID recipientId,
+            String eventKey,
+            NotificationType type,
+            String text,
+            Instant createdAt,
+            boolean read,
+            Link link) {
         super(id);
         this.recipientId = recipientId;
         this.eventKey = eventKey;

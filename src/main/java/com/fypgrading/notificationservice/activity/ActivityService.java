@@ -25,7 +25,8 @@ public class ActivityService {
 
     @Transactional(readOnly = true)
     public PageView<ActivityView> list(int page, int size) {
-        return PageView.of(activity.findAllByOrderByAtDesc(PageRequest.of(page, size)).map(ActivityView::of));
+        return PageView.of(
+                activity.findAllByOrderByAtDesc(PageRequest.of(page, size)).map(ActivityView::of));
     }
 
     /** Idempotent on the event id, so a redelivered message is a no-op. */
@@ -40,14 +41,18 @@ public class ActivityService {
         AfterCommit.run(() -> live.toAdmins(session, "activity", eventId.toString(), view));
     }
 
-    public record Actor(UUID id, String displayName) {
-    }
+    public record Actor(UUID id, String displayName) {}
 
     public record ActivityView(UUID id, String kind, Actor actor, String text, Instant at, Link link) {
 
         static ActivityView of(ActivityEntry e) {
-            return new ActivityView(e.getId(), e.getKind(), new Actor(e.getActorId(), e.getActorName()), e.getText(),
-                    e.getAt(), e.getLink());
+            return new ActivityView(
+                    e.getId(),
+                    e.getKind(),
+                    new Actor(e.getActorId(), e.getActorName()),
+                    e.getText(),
+                    e.getAt(),
+                    e.getLink());
         }
     }
 }

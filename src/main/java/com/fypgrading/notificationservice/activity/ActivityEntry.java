@@ -37,8 +37,7 @@ public class ActivityEntry extends AssignedIdEntity {
     @Embedded
     private Link link;
 
-    protected ActivityEntry() {
-    }
+    protected ActivityEntry() {}
 
     public ActivityEntry(UUID id, String kind, UUID actorId, String actorName, String text, Instant at, Link link) {
         super(id);

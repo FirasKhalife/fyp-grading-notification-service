@@ -92,29 +92,41 @@ class NotificationFlowTest {
         Thread.sleep(500);
         assertThat(count(JANE)).isEqualTo(1);
 
-        String body = mvc.perform(get("/api/notifications").header("X-Demo-Session", session).with(user(JANE, "REVIEWER")))
+        String body = mvc.perform(get("/api/notifications")
+                        .header("X-Demo-Session", session)
+                        .with(user(JANE, "REVIEWER")))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.unreadCount").value(1))
                 .andExpect(jsonPath("$.content[0].type").value("GRADE_FINAL"))
                 .andExpect(jsonPath("$.content[0].link.assessment").value("FINAL_REPORT"))
                 .andExpect(jsonPath("$.page.totalElements").value(1))
-                .andReturn().getResponse().getContentAsString();
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
         String id = com.jayway.jsonpath.JsonPath.read(body, "$.content[0].id");
 
         // Read state is per person: John sees nothing, and Jane reading hers leaves Rania's unread.
         mvc.perform(get("/api/notifications").header("X-Demo-Session", session).with(user(JOHN, "REVIEWER")))
                 .andExpect(jsonPath("$.content.length()").value(0));
-        mvc.perform(patch("/api/notifications/" + id).header("X-Demo-Session", session).with(user(RANIA, "ADMIN"))
-                        .contentType(MediaType.APPLICATION_JSON).content("{\"read\": true}"))
+        mvc.perform(patch("/api/notifications/" + id)
+                        .header("X-Demo-Session", session)
+                        .with(user(RANIA, "ADMIN"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"read\": true}"))
                 .andExpect(status().isNotFound());
-        mvc.perform(patch("/api/notifications/" + id).header("X-Demo-Session", session).with(user(JANE, "REVIEWER"))
-                        .contentType(MediaType.APPLICATION_JSON).content("{\"read\": true}"))
+        mvc.perform(patch("/api/notifications/" + id)
+                        .header("X-Demo-Session", session)
+                        .with(user(JANE, "REVIEWER"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"read\": true}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.read").value(true));
         assertThat(count(JANE)).isZero();
         assertThat(count(RANIA)).isEqualTo(1);
 
-        mvc.perform(post("/api/notifications/read-all").header("X-Demo-Session", session).with(user(RANIA, "ADMIN")))
+        mvc.perform(post("/api/notifications/read-all")
+                        .header("X-Demo-Session", session)
+                        .with(user(RANIA, "ADMIN")))
                 .andExpect(status().isNoContent());
         assertThat(count(RANIA)).isZero();
     }
@@ -124,10 +136,11 @@ class NotificationFlowTest {
         publish("assay.activity", """
                 {"eventId": "%s", "demoSession": "%s", "kind": "SUBMITTED", "actorId": "%s", "actorName": "Jane Smith",
                  "text": "submitted the Final report for Team Beta (3 of 3).", "at": "2026-06-10T10:20:00Z",
-                 "link": {"kind": "TEAM", "teamId": null, "assessment": "FINAL_REPORT"}}"""
-                .formatted(UUID.randomUUID(), session, JANE));
-        await().atMost(Duration.ofSeconds(15)).untilAsserted(() ->
-                mvc.perform(get("/api/activity").header("X-Demo-Session", session).with(user(RANIA, "ADMIN")))
+                 "link": {"kind": "TEAM", "teamId": null, "assessment": "FINAL_REPORT"}}""".formatted(UUID.randomUUID(), session, JANE));
+        await().atMost(Duration.ofSeconds(15))
+                .untilAsserted(() -> mvc.perform(get("/api/activity")
+                                .header("X-Demo-Session", session)
+                                .with(user(RANIA, "ADMIN")))
                         .andExpect(jsonPath("$.content[0].actor.displayName").value("Jane Smith"))
                         .andExpect(jsonPath("$.content[0].kind").value("SUBMITTED")));
         mvc.perform(get("/api/activity").header("X-Demo-Session", session).with(user(JANE, "REVIEWER")))
@@ -141,9 +154,13 @@ class NotificationFlowTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.unreadCount").isNumber())
                 .andExpect(jsonPath("$.content.length()").value(org.hamcrest.Matchers.greaterThan(3)));
-        mvc.perform(get("/api/activity?size=50").header("X-Demo-Session", session).with(user(RANIA, "ADMIN")))
+        mvc.perform(get("/api/activity?size=50")
+                        .header("X-Demo-Session", session)
+                        .with(user(RANIA, "ADMIN")))
                 .andExpect(jsonPath("$.content.length()").value(org.hamcrest.Matchers.greaterThan(10)));
-        mvc.perform(get("/api/notifications").header("X-Demo-Session", UUID.randomUUID()).with(user(JANE, "REVIEWER")))
+        mvc.perform(get("/api/notifications")
+                        .header("X-Demo-Session", UUID.randomUUID())
+                        .with(user(JANE, "REVIEWER")))
                 .andExpect(jsonPath("$.content.length()").value(0));
     }
 }

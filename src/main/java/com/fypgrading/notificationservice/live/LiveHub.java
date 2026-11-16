@@ -42,13 +42,15 @@ public class LiveHub {
     public void toUser(UUID session, UUID user, String event, String id, Object data) {
         subscribers(session).stream()
                 .filter(s -> s.user().equals(user))
-                .forEach(s -> send(session, s, SseEmitter.event().name(event).id(id).data(data, MediaType.APPLICATION_JSON)));
+                .forEach(s ->
+                        send(session, s, SseEmitter.event().name(event).id(id).data(data, MediaType.APPLICATION_JSON)));
     }
 
     public void toAdmins(UUID session, String event, String id, Object data) {
         subscribers(session).stream()
                 .filter(Subscriber::admin)
-                .forEach(s -> send(session, s, SseEmitter.event().name(event).id(id).data(data, MediaType.APPLICATION_JSON)));
+                .forEach(s ->
+                        send(session, s, SseEmitter.event().name(event).id(id).data(data, MediaType.APPLICATION_JSON)));
     }
 
     /** Ends every stream of a demo copy (reset or purge); the client reconnects and refetches. */
@@ -96,6 +98,5 @@ public class LiveHub {
         }
     }
 
-    private record Subscriber(UUID user, boolean admin, SseEmitter emitter) {
-    }
+    private record Subscriber(UUID user, boolean admin, SseEmitter emitter) {}
 }

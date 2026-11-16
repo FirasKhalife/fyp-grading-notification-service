@@ -36,8 +36,14 @@ public class DemoCopyService {
     private final Clock clock;
     private final Seed seed;
 
-    public DemoCopyService(NotificationRepository notifications, ActivityRepository activity, LiveHub live,
-            TransactionTemplate tx, Clock clock, JsonMapper json) throws IOException {
+    public DemoCopyService(
+            NotificationRepository notifications,
+            ActivityRepository activity,
+            LiveHub live,
+            TransactionTemplate tx,
+            Clock clock,
+            JsonMapper json)
+            throws IOException {
         this.notifications = notifications;
         this.activity = activity;
         this.live = live;
@@ -51,16 +57,31 @@ public class DemoCopyService {
     public void replace(UUID session) {
         SeedClock at = SeedClock.startingNow(clock);
         delete(session);
-        DemoSession.runAs(session, () -> tx.executeWithoutResult(s -> {
-            for (SeedNotification n : seed.notifications()) {
-                notifications.save(new Notification(SeedIds.of(session, n.key()), n.recipientId(), n.key(), n.type(),
-                        n.text(), at.resolve(n.createdAt()), n.read(), link(session, n.link())));
-            }
-            for (SeedActivity a : seed.activity()) {
-                activity.save(new ActivityEntry(SeedIds.of(session, a.key()), a.kind(), a.actorId(), a.actorName(),
-                        a.text(), at.resolve(a.at()), link(session, a.link())));
-            }
-        }));
+        DemoSession.runAs(
+                session,
+                () -> tx.executeWithoutResult(s -> {
+                    for (SeedNotification n : seed.notifications()) {
+                        notifications.save(new Notification(
+                                SeedIds.of(session, n.key()),
+                                n.recipientId(),
+                                n.key(),
+                                n.type(),
+                                n.text(),
+                                at.resolve(n.createdAt()),
+                                n.read(),
+                                link(session, n.link())));
+                    }
+                    for (SeedActivity a : seed.activity()) {
+                        activity.save(new ActivityEntry(
+                                SeedIds.of(session, a.key()),
+                                a.kind(),
+                                a.actorId(),
+                                a.actorName(),
+                                a.text(),
+                                at.resolve(a.at()),
+                                link(session, a.link())));
+                    }
+                }));
     }
 
     public void delete(UUID session) {
@@ -82,21 +103,23 @@ public class DemoCopyService {
         if (link == null) {
             return new Link("OVERVIEW", null, null);
         }
-        return new Link(link.kind(), link.teamKey() == null ? null : SeedIds.of(session, link.teamKey()),
-                link.assessment());
+        return new Link(
+                link.kind(), link.teamKey() == null ? null : SeedIds.of(session, link.teamKey()), link.assessment());
     }
 
-    record Seed(List<SeedNotification> notifications, List<SeedActivity> activity) {
-    }
+    record Seed(List<SeedNotification> notifications, List<SeedActivity> activity) {}
 
-    record SeedNotification(String key, UUID recipientId, NotificationType type, String text, String createdAt,
-                            boolean read, SeedLink link) {
-    }
+    record SeedNotification(
+            String key,
+            UUID recipientId,
+            NotificationType type,
+            String text,
+            String createdAt,
+            boolean read,
+            SeedLink link) {}
 
-    record SeedActivity(String key, String kind, UUID actorId, String actorName, String text, String at,
-                        SeedLink link) {
-    }
+    record SeedActivity(
+            String key, String kind, UUID actorId, String actorName, String text, String at, SeedLink link) {}
 
-    record SeedLink(String kind, String teamKey, String assessment) {
-    }
+    record SeedLink(String kind, String teamKey, String assessment) {}
 }

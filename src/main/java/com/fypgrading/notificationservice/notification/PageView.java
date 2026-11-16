@@ -7,10 +7,10 @@ import org.springframework.data.domain.Page;
 public record PageView<T>(List<T> content, PageMeta page) {
 
     public static <T> PageView<T> of(Page<T> page) {
-        return new PageView<>(page.getContent(),
+        return new PageView<>(
+                page.getContent(),
                 new PageMeta(page.getSize(), page.getNumber(), page.getTotalElements(), page.getTotalPages()));
     }
 
-    public record PageMeta(int size, int number, long totalElements, int totalPages) {
-    }
+    public record PageMeta(int size, int number, long totalElements, int totalPages) {}
 }

@@ -40,7 +40,8 @@ public class NotificationController {
     }
 
     @GetMapping("/api/notifications")
-    public NotificationPage list(@RequestParam(defaultValue = "false") boolean unread,
+    public NotificationPage list(
+            @RequestParam(defaultValue = "false") boolean unread,
             @RequestParam(defaultValue = "0") @Min(0) int page,
             @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
         return notifications.list(CurrentUser.require().id(), unread, page, size);
@@ -65,11 +66,11 @@ public class NotificationController {
 
     @GetMapping("/api/activity")
     @PreAuthorize("hasRole('ADMIN')")
-    public PageView<ActivityView> activity(@RequestParam(defaultValue = "0") @Min(0) int page,
+    public PageView<ActivityView> activity(
+            @RequestParam(defaultValue = "0") @Min(0) int page,
             @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
         return activity.list(page, size);
     }
 
-    public record ReadState(@NotNull Boolean read) {
-    }
+    public record ReadState(@NotNull Boolean read) {}
 }

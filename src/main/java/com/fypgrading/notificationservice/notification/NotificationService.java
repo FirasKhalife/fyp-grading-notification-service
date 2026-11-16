@@ -38,7 +38,8 @@ public class NotificationService {
 
     @Transactional
     public NotificationView markRead(UUID me, UUID id, boolean read) {
-        Notification n = notifications.findByIdAndRecipientId(id, me)
+        Notification n = notifications
+                .findByIdAndRecipientId(id, me)
                 .orElseThrow(() -> ApiException.notFound("The notification"));
         n.markRead(read);
         pushUnreadCount(me);
@@ -56,8 +57,8 @@ public class NotificationService {
      * per recipient.
      */
     @Transactional
-    public void deliver(String eventKey, NotificationType type, String text, Instant at, Link link,
-            List<UUID> recipients) {
+    public void deliver(
+            String eventKey, NotificationType type, String text, Instant at, Link link, List<UUID> recipients) {
         UUID session = DemoSession.require();
         for (UUID recipient : recipients.stream().distinct().toList()) {
             if (notifications.existsByEventKeyAndRecipientId(eventKey, recipient)) {
@@ -77,18 +78,17 @@ public class NotificationService {
     private void pushUnreadCount(UUID me) {
         UUID session = DemoSession.require();
         long unread = notifications.countByRecipientIdAndReadFalse(me);
-        AfterCommit.run(() -> live.toUser(session, me, "unread-count", UUID.randomUUID().toString(),
-                Map.of("unreadCount", unread)));
+        AfterCommit.run(() ->
+                live.toUser(session, me, "unread-count", UUID.randomUUID().toString(), Map.of("unreadCount", unread)));
     }
 
-    public record NotificationView(UUID id, NotificationType type, String text, Instant createdAt, boolean read,
-                                   Link link) {
+    public record NotificationView(
+            UUID id, NotificationType type, String text, Instant createdAt, boolean read, Link link) {
 
         static NotificationView of(Notification n) {
             return new NotificationView(n.getId(), n.getType(), n.getText(), n.getCreatedAt(), n.isRead(), n.getLink());
         }
     }
 
-    public record NotificationPage(List<NotificationView> content, PageView.PageMeta page, long unreadCount) {
-    }
+    public record NotificationPage(List<NotificationView> content, PageView.PageMeta page, long unreadCount) {}
 }
