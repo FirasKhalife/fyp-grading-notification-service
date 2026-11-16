@@ -24,9 +24,12 @@ public class ActivityService {
     }
 
     @Transactional(readOnly = true)
-    public PageView<ActivityView> list(int page, int size) {
-        return PageView.of(
-                activity.findAllByOrderByAtDesc(PageRequest.of(page, size)).map(ActivityView::of));
+    public PageView<ActivityView> list(UUID teamId, int page, int size) {
+        PageRequest request = PageRequest.of(page, size);
+        return PageView.of((teamId == null
+                        ? activity.findAllByOrderByAtDesc(request)
+                        : activity.findByLink_TeamIdOrderByAtDesc(teamId, request))
+                .map(ActivityView::of));
     }
 
     /** Idempotent on the event id, so a redelivered message is a no-op. */

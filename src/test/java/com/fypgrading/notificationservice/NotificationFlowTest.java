@@ -162,5 +162,18 @@ class NotificationFlowTest {
                         .header("X-Demo-Session", UUID.randomUUID())
                         .with(user(JANE, "REVIEWER")))
                 .andExpect(jsonPath("$.content.length()").value(0));
+
+        // Plan 3.4: one team's history is the feed filtered to that team (Beta: the draft change, the defense).
+        UUID beta = com.fypgrading.notificationservice.common.demo.SeedIds.of(session, "team:beta");
+        String history = mvc.perform(get("/api/activity?size=50&teamId=" + beta)
+                        .header("X-Demo-Session", session)
+                        .with(user(RANIA, "ADMIN")))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
+        java.util.List<String> teams = com.jayway.jsonpath.JsonPath.read(history, "$.content[*].link.teamId");
+        assertThat(teams).isNotEmpty().allMatch(beta.toString()::equals);
+        assertThat(history).contains("Problem formulation");
     }
 }

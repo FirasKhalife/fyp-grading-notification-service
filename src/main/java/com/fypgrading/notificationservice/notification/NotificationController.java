@@ -67,9 +67,10 @@ public class NotificationController {
     @GetMapping("/api/activity")
     @PreAuthorize("hasRole('ADMIN')")
     public PageView<ActivityView> activity(
+            @RequestParam(required = false) UUID teamId,
             @RequestParam(defaultValue = "0") @Min(0) int page,
             @RequestParam(defaultValue = "20") @Min(1) @Max(100) int size) {
-        return activity.list(page, size);
+        return activity.list(teamId, page, size);
     }
 
     public record ReadState(@NotNull Boolean read) {}
