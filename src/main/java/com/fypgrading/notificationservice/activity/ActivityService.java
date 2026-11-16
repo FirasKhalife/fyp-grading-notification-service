@@ -27,8 +27,8 @@ public class ActivityService {
     public PageView<ActivityView> list(UUID teamId, int page, int size) {
         PageRequest request = PageRequest.of(page, size);
         return PageView.of((teamId == null
-                        ? activity.findAllByOrderByAtDesc(request)
-                        : activity.findByLink_TeamIdOrderByAtDesc(teamId, request))
+                        ? activity.findAllByOrderByAtDescIdDesc(request)
+                        : activity.findByLink_TeamIdOrderByAtDescIdDesc(teamId, request))
                 .map(ActivityView::of));
     }
 

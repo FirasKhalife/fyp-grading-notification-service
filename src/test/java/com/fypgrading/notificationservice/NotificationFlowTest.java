@@ -123,6 +123,14 @@ class NotificationFlowTest {
                 .andExpect(jsonPath("$.read").value(true));
         assertThat(count(JANE)).isZero();
         assertThat(count(RANIA)).isEqualTo(1);
+        // Review M15: a body without `read` is a 400, not a 500.
+        mvc.perform(patch("/api/notifications/" + id)
+                        .header("X-Demo-Session", session)
+                        .with(user(JANE, "REVIEWER"))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{}"))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.code").value("validation-failed"));
 
         mvc.perform(post("/api/notifications/read-all")
                         .header("X-Demo-Session", session)
@@ -149,7 +157,7 @@ class NotificationFlowTest {
 
     @Test
     void theSeedGivesEachPersonaTheirOwnInboxInTheirOwnCopy() throws Exception {
-        copies.replace(session);
+        copies.replace(session, java.time.Instant.now());
         mvc.perform(get("/api/notifications").header("X-Demo-Session", session).with(user(JANE, "REVIEWER")))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.unreadCount").isNumber())
@@ -162,6 +170,14 @@ class NotificationFlowTest {
                         .header("X-Demo-Session", UUID.randomUUID())
                         .with(user(JANE, "REVIEWER")))
                 .andExpect(jsonPath("$.content.length()").value(0));
+        // Review M16: marking everything read in another copy leaves this copy's inbox alone.
+        long unread = count(JANE);
+        assertThat(unread).isPositive();
+        mvc.perform(post("/api/notifications/read-all")
+                        .header("X-Demo-Session", UUID.randomUUID())
+                        .with(user(JANE, "REVIEWER")))
+                .andExpect(status().isNoContent());
+        assertThat(count(JANE)).isEqualTo(unread);
 
         // Plan 3.4: one team's history is the feed filtered to that team (Beta: the draft change, the defense).
         UUID beta = com.fypgrading.notificationservice.common.demo.SeedIds.of(session, "team:beta");

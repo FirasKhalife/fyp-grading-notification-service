@@ -10,10 +10,10 @@ import org.springframework.data.repository.query.Param;
 
 public interface ActivityRepository extends JpaRepository<ActivityEntry, UUID> {
 
-    Page<ActivityEntry> findAllByOrderByAtDesc(Pageable pageable);
+    Page<ActivityEntry> findAllByOrderByAtDescIdDesc(Pageable pageable);
 
     /** One team's history (plan 3.4): every feed line linked to the team. */
-    Page<ActivityEntry> findByLink_TeamIdOrderByAtDesc(UUID teamId, Pageable pageable);
+    Page<ActivityEntry> findByLink_TeamIdOrderByAtDescIdDesc(UUID teamId, Pageable pageable);
 
     @Modifying
     @Query(value = "delete from activity where demo_session = :session", nativeQuery = true)

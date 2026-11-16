@@ -30,8 +30,8 @@ public class NotificationService {
     public NotificationPage list(UUID me, boolean unreadOnly, int page, int size) {
         PageRequest request = PageRequest.of(page, size);
         Page<Notification> found = unreadOnly
-                ? notifications.findByRecipientIdAndReadFalseOrderByCreatedAtDesc(me, request)
-                : notifications.findByRecipientIdOrderByCreatedAtDesc(me, request);
+                ? notifications.findByRecipientIdAndReadFalseOrderByCreatedAtDescIdDesc(me, request)
+                : notifications.findByRecipientIdOrderByCreatedAtDescIdDesc(me, request);
         PageView<NotificationView> view = PageView.of(found.map(NotificationView::of));
         return new NotificationPage(view.content(), view.page(), notifications.countByRecipientIdAndReadFalse(me));
     }

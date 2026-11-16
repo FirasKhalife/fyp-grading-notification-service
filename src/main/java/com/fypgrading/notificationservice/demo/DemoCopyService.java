@@ -54,12 +54,14 @@ public class DemoCopyService {
         }
     }
 
-    public void replace(UUID session) {
-        SeedClock at = SeedClock.startingNow(clock);
-        delete(session);
+    /** Deletes the session's copy, if any, and writes a fresh one in one transaction (review M4). */
+    public void replace(UUID session, java.time.Instant createdAt) {
+        SeedClock at = SeedClock.startingAt(createdAt);
         DemoSession.runAs(
                 session,
                 () -> tx.executeWithoutResult(s -> {
+                    notifications.deleteCopy(session.toString());
+                    activity.deleteCopy(session.toString());
                     for (SeedNotification n : seed.notifications()) {
                         notifications.save(new Notification(
                                 SeedIds.of(session, n.key()),
@@ -82,6 +84,8 @@ public class DemoCopyService {
                                 link(session, a.link())));
                     }
                 }));
+        // The streams reconnect and refetch, now that the new copy exists.
+        live.closeSession(session);
     }
 
     public void delete(UUID session) {

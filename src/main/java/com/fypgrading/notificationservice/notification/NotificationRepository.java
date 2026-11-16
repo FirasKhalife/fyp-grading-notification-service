@@ -12,9 +12,9 @@ import org.springframework.data.repository.query.Param;
 /** Scoped to the current demo session by Hibernate; the native deletes manage whole copies. */
 public interface NotificationRepository extends JpaRepository<Notification, UUID> {
 
-    Page<Notification> findByRecipientIdOrderByCreatedAtDesc(UUID recipientId, Pageable pageable);
+    Page<Notification> findByRecipientIdOrderByCreatedAtDescIdDesc(UUID recipientId, Pageable pageable);
 
-    Page<Notification> findByRecipientIdAndReadFalseOrderByCreatedAtDesc(UUID recipientId, Pageable pageable);
+    Page<Notification> findByRecipientIdAndReadFalseOrderByCreatedAtDescIdDesc(UUID recipientId, Pageable pageable);
 
     long countByRecipientIdAndReadFalse(UUID recipientId);
 

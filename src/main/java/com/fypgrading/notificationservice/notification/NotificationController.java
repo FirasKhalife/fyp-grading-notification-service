@@ -48,7 +48,7 @@ public class NotificationController {
     }
 
     @PatchMapping("/api/notifications/{id}")
-    public NotificationView update(@PathVariable UUID id, @RequestBody ReadState body) {
+    public NotificationView update(@PathVariable UUID id, @jakarta.validation.Valid @RequestBody ReadState body) {
         return notifications.markRead(CurrentUser.require().id(), id, body.read());
     }
 

@@ -80,6 +80,8 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
+            <scope>test</scope>
+            <!-- review: only the tests publish directly; the Rabbit binder brings what main needs -->
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>

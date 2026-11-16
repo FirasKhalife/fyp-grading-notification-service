@@ -27,6 +27,8 @@ spring:
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/notification-db}
     username: ${DATABASE_USERNAME:admin}
     password: ${DATABASE_PASSWORD:admin}
+    hikari:
+      maximum-pool-size: 5
   jpa:
     open-in-view: false
     hibernate:
@@ -38,9 +40,14 @@ spring:
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USERNAME:guest}
     password: ${RABBITMQ_PASSWORD:guest}
+    connection-timeout: 5s
   mvc:
     async:
       request-timeout: 31m
+  task:
+    scheduling:
+      pool:
+        size: 2   # the SSE keepalive and the midnight purge don't wait on each other
   security:
     oauth2:
       resourceserver:
@@ -50,6 +57,9 @@ spring:
 server:
   port: ${PORT:8080}
   shutdown: graceful
+  tomcat:
+    threads:
+      max: 40   # review H5: a demo needs few threads, and each costs stack memory
 
 eureka:
   client:
