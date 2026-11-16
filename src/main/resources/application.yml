@@ -2,12 +2,10 @@ spring:
   application:
     name: notification-service
   config:
-    import: "optional:configserver:"
+    # Shared settings from config-server (fyp-grading-config). Optional: this file is complete on its own.
+    import: "optional:configserver:${CONFIG_SERVER_URL:http://localhost:8071}/config"
   cloud:
     config:
-      discovery:
-        enabled: true
-        service-id: config-server
       fail-fast: false
     function:
       definition: activity;notifications
@@ -55,6 +53,9 @@ server:
 
 eureka:
   client:
+    # Register and refresh quickly: the services start together and find each other (and the config server) by name.
+    initial-instance-info-replication-interval-seconds: 2
+    registry-fetch-interval-seconds: 5
     service-url:
       defaultZone: ${REGISTRY_SERVER_URL:http://localhost:8761/eureka/}
   instance:
@@ -81,3 +82,7 @@ info:
     name: ${spring.application.name}
     description: "Assay notification service: personal notifications, activity feed, live stream"
     version: ${BUILD_VERSION:dev}
+
+springdoc:
+  # Service-to-service endpoints aren't part of the public API (the gateway doesn't route them).
+  paths-to-exclude: /internal/**
