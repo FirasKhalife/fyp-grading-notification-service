@@ -1,0 +1,1137 @@
+{
+  "notifications": [
+    {
+      "key": "notification:1",
+      "recipientId": "00000000-0000-4000-a000-000000000002",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Defense confirmed: Team Beta, tomorrow at 09:00, Amphi A.",
+      "createdAt": "N-168m",
+      "read": false,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:beta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:2",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Team Delta's defense moved to tomorrow at 09:00, Room B-204. Conflict: John Doe is in two defenses at 09:00.",
+      "createdAt": "N-168m",
+      "read": false,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:delta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:3",
+      "recipientId": "00000000-0000-4000-a000-000000000003",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Team Delta's defense moved to tomorrow at 09:00, Room B-204. You are also on the Team Beta jury at 09:00.",
+      "createdAt": "N-168m",
+      "read": false,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:delta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:4",
+      "recipientId": "00000000-0000-4000-a000-000000000005",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Team Delta's defense moved to tomorrow at 09:00, Room B-204.",
+      "createdAt": "N-168m",
+      "read": false,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:delta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:5",
+      "recipientId": "00000000-0000-4000-a000-000000000004",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Defense confirmed: Team Beta, tomorrow at 09:00, Amphi A.",
+      "createdAt": "N-168m",
+      "read": false,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:beta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:6",
+      "recipientId": "00000000-0000-4000-a000-000000000102",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Your defense is confirmed: tomorrow at 09:00, Amphi A (40 minutes).",
+      "createdAt": "N-168m",
+      "read": false,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:beta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:7",
+      "recipientId": "00000000-0000-4000-a000-000000000002",
+      "type": "DUE_SOON",
+      "text": "Final report for Team Beta is due in 2 days. Your draft has 8 of 13 criteria scored.",
+      "createdAt": "N-268m",
+      "read": false,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:beta",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:8",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "DUE_SOON",
+      "text": "Final report and Final presentation are due in 2 days: 3 and 8 evaluations still open.",
+      "createdAt": "N-268m",
+      "read": false,
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:9",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "DUE_SOON",
+      "text": "Final presentation for Team Epsilon is due in 2 days.",
+      "createdAt": "N-268m",
+      "read": false,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:epsilon",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:10",
+      "recipientId": "00000000-0000-4000-a000-000000000003",
+      "type": "DUE_SOON",
+      "text": "Final report for Team Delta is due in 2 days.",
+      "createdAt": "N-268m",
+      "read": false,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:delta",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:11",
+      "recipientId": "00000000-0000-4000-a000-000000000005",
+      "type": "DUE_SOON",
+      "text": "Final report for Team Delta is due in 2 days.",
+      "createdAt": "N-268m",
+      "read": false,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:delta",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:12",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final presentation for Team Zeta is final: 83.3.",
+      "createdAt": "D-1 17:15",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:zeta",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:13",
+      "recipientId": "00000000-0000-4000-a000-000000000003",
+      "type": "GRADE_FINAL",
+      "text": "Final presentation for Team Zeta is final: 83.3.",
+      "createdAt": "D-1 17:15",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:zeta",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:14",
+      "recipientId": "00000000-0000-4000-a000-000000000007",
+      "type": "GRADE_FINAL",
+      "text": "Final presentation for Team Zeta is final: 83.3.",
+      "createdAt": "D-1 17:15",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:zeta",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:15",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final presentation for Team Gamma is final: 91.7.",
+      "createdAt": "D-1 16:20",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:16",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Gamma's final grade is computed: 92.2.",
+      "createdAt": "D-1 16:20",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:17",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Gamma's final grade is computed: 92.2.",
+      "createdAt": "D-1 16:20",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:18",
+      "recipientId": "00000000-0000-4000-a000-000000000007",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Gamma's final grade is computed: 92.2.",
+      "createdAt": "D-1 16:20",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:19",
+      "recipientId": "00000000-0000-4000-a000-000000000004",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Gamma's final grade is computed: 92.2.",
+      "createdAt": "D-1 16:20",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:20",
+      "recipientId": "00000000-0000-4000-a000-000000000101",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Final presentation results are available.",
+      "createdAt": "D-1 12:05",
+      "read": false,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:alpha",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:21",
+      "recipientId": "00000000-0000-4000-a000-000000000002",
+      "type": "GRADE_FINAL",
+      "text": "Final presentation for Team Alpha is final: 87.5.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:alpha",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:22",
+      "recipientId": "00000000-0000-4000-a000-000000000002",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Alpha's final grade is computed: 88.0.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:23",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final presentation for Team Alpha is final: 87.5.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:24",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Alpha's final grade is computed: 88.0.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:25",
+      "recipientId": "00000000-0000-4000-a000-000000000003",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Alpha's final grade is computed: 88.0.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:26",
+      "recipientId": "00000000-0000-4000-a000-000000000005",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Alpha's final grade is computed: 88.0.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:27",
+      "recipientId": "00000000-0000-4000-a000-000000000007",
+      "type": "FINAL_GRADE_COMPUTED",
+      "text": "Team Alpha's final grade is computed: 88.0.",
+      "createdAt": "D-1 11:40",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:28",
+      "recipientId": "00000000-0000-4000-a000-000000000002",
+      "type": "GRADE_FINAL",
+      "text": "Final report for Team Epsilon is final: 77.9.",
+      "createdAt": "D-2 18:30",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:epsilon",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:29",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final report for Team Epsilon is final: 77.9.",
+      "createdAt": "D-2 18:30",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:epsilon",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:30",
+      "recipientId": "00000000-0000-4000-a000-000000000101",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Final report results are available.",
+      "createdAt": "D-2 10:00",
+      "read": true,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:alpha",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:31",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final report for Team Gamma is final: 91.7.",
+      "createdAt": "D-3 18:45",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:32",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final report for Team Zeta is final: 80.4.",
+      "createdAt": "D-3 08:55",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:zeta",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:33",
+      "recipientId": "00000000-0000-4000-a000-000000000101",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Advisor assessment results are available.",
+      "createdAt": "D-4 10:00",
+      "read": true,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:alpha",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:34",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Final report for Team Alpha is final: 87.5.",
+      "createdAt": "D-4 09:30",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "notification:35",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "OVERDUE",
+      "text": "2 advisor assessments are overdue: Team Delta (Karim Nassar, draft) and Team Zeta (Michael Johnson, not started).",
+      "createdAt": "D-4 08:00",
+      "read": true,
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:36",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "OVERDUE",
+      "text": "Advisor assessment for Team Delta is overdue. Your draft has 2 of 5 criteria scored.",
+      "createdAt": "D-4 08:00",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:delta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:37",
+      "recipientId": "00000000-0000-4000-a000-000000000004",
+      "type": "OVERDUE",
+      "text": "Advisor assessment for Team Zeta is overdue. You haven't started it yet.",
+      "createdAt": "D-4 08:00",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:zeta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:38",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Advisor assessment for Team Epsilon is final: 85.0.",
+      "createdAt": "D-5 21:40",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:epsilon",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:39",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Advisor assessment for Team Beta is final: 80.0.",
+      "createdAt": "D-6 11:20",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:beta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:40",
+      "recipientId": "00000000-0000-4000-a000-000000000005",
+      "type": "GRADE_FINAL",
+      "text": "Advisor assessment for Team Beta is final: 80.0.",
+      "createdAt": "D-6 11:20",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:beta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:41",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Advisor assessment for Team Alpha is final: 90.0.",
+      "createdAt": "D-7 16:30",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:42",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Advisor assessment for Team Gamma is final: 95.0.",
+      "createdAt": "D-8 09:45",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:43",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "DUE_SOON",
+      "text": "Advisor assessment for Team Delta is due in 3 days.",
+      "createdAt": "D-8 08:00",
+      "read": true,
+      "link": {
+        "kind": "EVALUATION",
+        "teamKey": "team:delta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "notification:44",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Defense scheduled: Team Gamma, day 1 of the defense week, 11:00, Amphi A.",
+      "createdAt": "D-30 10:00",
+      "read": true,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:45",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Defense scheduled: Team Epsilon, day 2 of the defense week, 09:00, Amphi A.",
+      "createdAt": "D-30 10:00",
+      "read": true,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:epsilon",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:46",
+      "recipientId": "00000000-0000-4000-a000-000000000101",
+      "type": "DEFENSE_SCHEDULED",
+      "text": "Your defense is scheduled: day 1 of the defense week, 09:00, Amphi A (40 minutes).",
+      "createdAt": "D-30 10:00",
+      "read": true,
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:47",
+      "recipientId": "00000000-0000-4000-a000-000000000101",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Progress report results are available.",
+      "createdAt": "D-63 10:00",
+      "read": true,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:alpha",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:48",
+      "recipientId": "00000000-0000-4000-a000-000000000102",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Progress report results are available.",
+      "createdAt": "D-63 10:00",
+      "read": true,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:beta",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:49",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Progress report for Team Zeta is final: 78.3.",
+      "createdAt": "D-75 21:50",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:zeta",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:50",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Progress report for Team Beta is final: 70.0.",
+      "createdAt": "D-76 22:10",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:beta",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:51",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Progress report for Team Epsilon is final: 75.0.",
+      "createdAt": "D-76 09:40",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:epsilon",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:52",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Progress report for Team Delta is final: 60.0.",
+      "createdAt": "D-76 08:50",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:delta",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:53",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Progress report for Team Alpha is final: 83.3.",
+      "createdAt": "D-77 21:05",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:54",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Progress report for Team Gamma is final: 88.3.",
+      "createdAt": "D-78 14:40",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "notification:55",
+      "recipientId": "00000000-0000-4000-a000-000000000101",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Proposal presentation results are available.",
+      "createdAt": "D-99 10:00",
+      "read": true,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:alpha",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:56",
+      "recipientId": "00000000-0000-4000-a000-000000000102",
+      "type": "RESULTS_RELEASED",
+      "text": "Your Proposal presentation results are available.",
+      "createdAt": "D-99 10:00",
+      "read": true,
+      "link": {
+        "kind": "STUDENT_RESULTS",
+        "teamKey": "team:beta",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:57",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Proposal presentation for Team Zeta is final: 81.3.",
+      "createdAt": "D-111 15:40",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:zeta",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:58",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Proposal presentation for Team Epsilon is final: 79.6.",
+      "createdAt": "D-111 12:10",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:epsilon",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:59",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Proposal presentation for Team Delta is final: 62.5.",
+      "createdAt": "D-112 15:30",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:delta",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:60",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Proposal presentation for Team Gamma is final: 89.6.",
+      "createdAt": "D-112 11:05",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:61",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Proposal presentation for Team Beta is final: 74.2.",
+      "createdAt": "D-113 16:05",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:beta",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:62",
+      "recipientId": "00000000-0000-4000-a000-000000000001",
+      "type": "GRADE_FINAL",
+      "text": "Proposal presentation for Team Alpha is final: 86.7.",
+      "createdAt": "D-113 11:20",
+      "read": true,
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "notification:63",
+      "recipientId": "00000000-0000-4000-a000-000000000002",
+      "type": "ASSIGNED",
+      "text": "You were assigned to Team Epsilon as a jury member.",
+      "createdAt": "D-147 09:30",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:epsilon",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:64",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "ASSIGNED",
+      "text": "You were assigned to Team Epsilon as a jury member.",
+      "createdAt": "D-147 09:30",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:epsilon",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:65",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "ASSIGNED",
+      "text": "You were assigned to Team Gamma as a jury member.",
+      "createdAt": "D-150 09:31",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "notification:66",
+      "recipientId": "00000000-0000-4000-a000-000000000006",
+      "type": "ASSIGNED",
+      "text": "You were assigned to Team Delta as advisor.",
+      "createdAt": "D-150 09:30",
+      "read": true,
+      "link": {
+        "kind": "MY_TEAMS",
+        "teamKey": "team:delta",
+        "assessment": null
+      }
+    }
+  ],
+  "activity": [
+    {
+      "key": "activity:1",
+      "kind": "SUBMITTED",
+      "actorId": "00000000-0000-4000-a000-000000000007",
+      "actorName": "Lea Mansour",
+      "text": "submitted the Final presentation for Team Epsilon (1 of 3).",
+      "at": "N-40m",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:epsilon",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:2",
+      "kind": "DRAFT_SAVED",
+      "actorId": "00000000-0000-4000-a000-000000000006",
+      "actorName": "Karim Nassar",
+      "text": "saved a draft of the Advisor assessment for Team Delta, overdue for 5 days.",
+      "at": "N-86m",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:delta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "activity:3",
+      "kind": "LEVEL_CHANGED",
+      "actorId": "00000000-0000-4000-a000-000000000002",
+      "actorName": "Jane Smith",
+      "text": "changed Problem formulation 2 → 3 in her Team Beta final report draft.",
+      "at": "N-133m",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:beta",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "activity:4",
+      "kind": "SCHEDULE",
+      "actorId": null,
+      "actorName": "Schedule",
+      "text": "Team Delta moved to tomorrow, 09:00, Room B-204. John Doe is now in two defenses at 09:00.",
+      "at": "N-168m",
+      "link": {
+        "kind": "SCHEDULE",
+        "teamKey": "team:delta",
+        "assessment": null
+      }
+    },
+    {
+      "key": "activity:5",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Zeta",
+      "text": "Final presentation grade is final: 83.3.",
+      "at": "D-1 17:15",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:zeta",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:6",
+      "kind": "FINAL_GRADE_COMPUTED",
+      "actorId": null,
+      "actorName": "Team Gamma",
+      "text": "final grade computed: 92.2.",
+      "at": "D-1 16:20",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": null
+      }
+    },
+    {
+      "key": "activity:7",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Gamma",
+      "text": "Final presentation grade is final: 91.7.",
+      "at": "D-1 16:20",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:8",
+      "kind": "RELEASED",
+      "actorId": "00000000-0000-4000-a000-000000000001",
+      "actorName": "Rania Haddad",
+      "text": "released Final presentation results to Team Alpha.",
+      "at": "D-1 12:05",
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:9",
+      "kind": "FINAL_GRADE_COMPUTED",
+      "actorId": null,
+      "actorName": "Team Alpha",
+      "text": "final grade computed: 88.0.",
+      "at": "D-1 11:40",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": null
+      }
+    },
+    {
+      "key": "activity:10",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Alpha",
+      "text": "Final presentation grade is final: 87.5.",
+      "at": "D-1 11:40",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:alpha",
+        "assessment": "FINAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:11",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Epsilon",
+      "text": "Final report grade is final: 77.9.",
+      "at": "D-2 18:30",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:epsilon",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "activity:12",
+      "kind": "RELEASED",
+      "actorId": "00000000-0000-4000-a000-000000000001",
+      "actorName": "Rania Haddad",
+      "text": "released Final report results to Team Alpha and Team Gamma.",
+      "at": "D-2 10:00",
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "activity:13",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Gamma",
+      "text": "Final report grade is final: 91.7.",
+      "at": "D-3 18:45",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:gamma",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "activity:14",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Zeta",
+      "text": "Final report grade is final: 80.4.",
+      "at": "D-3 08:55",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:zeta",
+        "assessment": "FINAL_REPORT"
+      }
+    },
+    {
+      "key": "activity:15",
+      "kind": "RELEASED",
+      "actorId": "00000000-0000-4000-a000-000000000001",
+      "actorName": "Rania Haddad",
+      "text": "released Advisor assessment results to Team Alpha and Team Gamma.",
+      "at": "D-4 10:00",
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "activity:16",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Beta",
+      "text": "Advisor assessment grade is final: 80.0.",
+      "at": "D-6 11:20",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:beta",
+        "assessment": "ADVISOR_ASSESSMENT"
+      }
+    },
+    {
+      "key": "activity:17",
+      "kind": "RELEASED",
+      "actorId": "00000000-0000-4000-a000-000000000001",
+      "actorName": "Rania Haddad",
+      "text": "released Progress report results to all six teams.",
+      "at": "D-63 10:00",
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "activity:18",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Delta",
+      "text": "Progress report grade is final: 60.0.",
+      "at": "D-76 08:50",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:delta",
+        "assessment": "PROGRESS_REPORT"
+      }
+    },
+    {
+      "key": "activity:19",
+      "kind": "RELEASED",
+      "actorId": "00000000-0000-4000-a000-000000000001",
+      "actorName": "Rania Haddad",
+      "text": "released Proposal presentation results to all six teams.",
+      "at": "D-99 10:00",
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:20",
+      "kind": "GRADE_FINAL",
+      "actorId": null,
+      "actorName": "Team Beta",
+      "text": "Proposal presentation grade is final: 74.2.",
+      "at": "D-113 16:05",
+      "link": {
+        "kind": "TEAM",
+        "teamKey": "team:beta",
+        "assessment": "PROPOSAL_PRESENTATION"
+      }
+    },
+    {
+      "key": "activity:21",
+      "kind": "ASSIGNMENT",
+      "actorId": "00000000-0000-4000-a000-000000000001",
+      "actorName": "Rania Haddad",
+      "text": "assigned reviewers to all six teams.",
+      "at": "D-150 09:30",
+      "link": {
+        "kind": "OVERVIEW",
+        "teamKey": null,
+        "assessment": null
+      }
+    }
+  ]
+}
