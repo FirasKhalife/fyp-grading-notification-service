@@ -80,71 +80,6 @@
     },
     {
       "key": "notification:7",
-      "recipientId": "00000000-0000-4000-a000-000000000002",
-      "type": "DUE_SOON",
-      "text": "Final report for Team Beta is due in 2 days. Your draft has 8 of 13 criteria scored.",
-      "createdAt": "N-268m",
-      "read": false,
-      "link": {
-        "kind": "EVALUATION",
-        "teamKey": "team:beta",
-        "assessment": "FINAL_REPORT"
-      }
-    },
-    {
-      "key": "notification:8",
-      "recipientId": "00000000-0000-4000-a000-000000000001",
-      "type": "DUE_SOON",
-      "text": "Final report and Final presentation are due in 2 days: 3 and 8 evaluations still open.",
-      "createdAt": "N-268m",
-      "read": false,
-      "link": {
-        "kind": "OVERVIEW",
-        "teamKey": null,
-        "assessment": null
-      }
-    },
-    {
-      "key": "notification:9",
-      "recipientId": "00000000-0000-4000-a000-000000000006",
-      "type": "DUE_SOON",
-      "text": "Final presentation for Team Epsilon is due in 2 days.",
-      "createdAt": "N-268m",
-      "read": false,
-      "link": {
-        "kind": "EVALUATION",
-        "teamKey": "team:epsilon",
-        "assessment": "FINAL_PRESENTATION"
-      }
-    },
-    {
-      "key": "notification:10",
-      "recipientId": "00000000-0000-4000-a000-000000000003",
-      "type": "DUE_SOON",
-      "text": "Final report for Team Delta is due in 2 days.",
-      "createdAt": "N-268m",
-      "read": false,
-      "link": {
-        "kind": "EVALUATION",
-        "teamKey": "team:delta",
-        "assessment": "FINAL_REPORT"
-      }
-    },
-    {
-      "key": "notification:11",
-      "recipientId": "00000000-0000-4000-a000-000000000005",
-      "type": "DUE_SOON",
-      "text": "Final report for Team Delta is due in 2 days.",
-      "createdAt": "N-268m",
-      "read": false,
-      "link": {
-        "kind": "EVALUATION",
-        "teamKey": "team:delta",
-        "assessment": "FINAL_REPORT"
-      }
-    },
-    {
-      "key": "notification:12",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final presentation for Team Zeta is final: 83.3.",
@@ -157,7 +92,7 @@
       }
     },
     {
-      "key": "notification:13",
+      "key": "notification:8",
       "recipientId": "00000000-0000-4000-a000-000000000003",
       "type": "GRADE_FINAL",
       "text": "Final presentation for Team Zeta is final: 83.3.",
@@ -170,7 +105,7 @@
       }
     },
     {
-      "key": "notification:14",
+      "key": "notification:9",
       "recipientId": "00000000-0000-4000-a000-000000000007",
       "type": "GRADE_FINAL",
       "text": "Final presentation for Team Zeta is final: 83.3.",
@@ -183,7 +118,7 @@
       }
     },
     {
-      "key": "notification:15",
+      "key": "notification:10",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final presentation for Team Gamma is final: 91.7.",
@@ -196,7 +131,7 @@
       }
     },
     {
-      "key": "notification:16",
+      "key": "notification:11",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Gamma's final grade is computed: 92.2.",
@@ -209,7 +144,7 @@
       }
     },
     {
-      "key": "notification:17",
+      "key": "notification:12",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Gamma's final grade is computed: 92.2.",
@@ -222,7 +157,7 @@
       }
     },
     {
-      "key": "notification:18",
+      "key": "notification:13",
       "recipientId": "00000000-0000-4000-a000-000000000007",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Gamma's final grade is computed: 92.2.",
@@ -235,7 +170,7 @@
       }
     },
     {
-      "key": "notification:19",
+      "key": "notification:14",
       "recipientId": "00000000-0000-4000-a000-000000000004",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Gamma's final grade is computed: 92.2.",
@@ -248,7 +183,7 @@
       }
     },
     {
-      "key": "notification:20",
+      "key": "notification:15",
       "recipientId": "00000000-0000-4000-a000-000000000101",
       "type": "RESULTS_RELEASED",
       "text": "Your Final presentation results are available.",
@@ -261,7 +196,7 @@
       }
     },
     {
-      "key": "notification:21",
+      "key": "notification:16",
       "recipientId": "00000000-0000-4000-a000-000000000002",
       "type": "GRADE_FINAL",
       "text": "Final presentation for Team Alpha is final: 87.5.",
@@ -274,7 +209,7 @@
       }
     },
     {
-      "key": "notification:22",
+      "key": "notification:17",
       "recipientId": "00000000-0000-4000-a000-000000000002",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Alpha's final grade is computed: 88.0.",
@@ -287,7 +222,7 @@
       }
     },
     {
-      "key": "notification:23",
+      "key": "notification:18",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final presentation for Team Alpha is final: 87.5.",
@@ -300,7 +235,7 @@
       }
     },
     {
-      "key": "notification:24",
+      "key": "notification:19",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Alpha's final grade is computed: 88.0.",
@@ -313,7 +248,7 @@
       }
     },
     {
-      "key": "notification:25",
+      "key": "notification:20",
       "recipientId": "00000000-0000-4000-a000-000000000003",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Alpha's final grade is computed: 88.0.",
@@ -326,7 +261,7 @@
       }
     },
     {
-      "key": "notification:26",
+      "key": "notification:21",
       "recipientId": "00000000-0000-4000-a000-000000000005",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Alpha's final grade is computed: 88.0.",
@@ -339,7 +274,7 @@
       }
     },
     {
-      "key": "notification:27",
+      "key": "notification:22",
       "recipientId": "00000000-0000-4000-a000-000000000007",
       "type": "FINAL_GRADE_COMPUTED",
       "text": "Team Alpha's final grade is computed: 88.0.",
@@ -352,7 +287,7 @@
       }
     },
     {
-      "key": "notification:28",
+      "key": "notification:23",
       "recipientId": "00000000-0000-4000-a000-000000000002",
       "type": "GRADE_FINAL",
       "text": "Final report for Team Epsilon is final: 77.9.",
@@ -365,7 +300,7 @@
       }
     },
     {
-      "key": "notification:29",
+      "key": "notification:24",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final report for Team Epsilon is final: 77.9.",
@@ -378,7 +313,7 @@
       }
     },
     {
-      "key": "notification:30",
+      "key": "notification:25",
       "recipientId": "00000000-0000-4000-a000-000000000101",
       "type": "RESULTS_RELEASED",
       "text": "Your Final report results are available.",
@@ -391,7 +326,7 @@
       }
     },
     {
-      "key": "notification:31",
+      "key": "notification:26",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final report for Team Gamma is final: 91.7.",
@@ -404,7 +339,7 @@
       }
     },
     {
-      "key": "notification:32",
+      "key": "notification:27",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final report for Team Zeta is final: 80.4.",
@@ -417,7 +352,7 @@
       }
     },
     {
-      "key": "notification:33",
+      "key": "notification:28",
       "recipientId": "00000000-0000-4000-a000-000000000101",
       "type": "RESULTS_RELEASED",
       "text": "Your Advisor assessment results are available.",
@@ -430,7 +365,7 @@
       }
     },
     {
-      "key": "notification:34",
+      "key": "notification:29",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Final report for Team Alpha is final: 87.5.",
@@ -443,7 +378,7 @@
       }
     },
     {
-      "key": "notification:35",
+      "key": "notification:30",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "OVERDUE",
       "text": "2 advisor assessments are overdue: Team Delta (Karim Nassar, draft) and Team Zeta (Michael Johnson, not started).",
@@ -456,7 +391,7 @@
       }
     },
     {
-      "key": "notification:36",
+      "key": "notification:31",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "OVERDUE",
       "text": "Advisor assessment for Team Delta is overdue. Your draft has 2 of 5 criteria scored.",
@@ -469,7 +404,7 @@
       }
     },
     {
-      "key": "notification:37",
+      "key": "notification:32",
       "recipientId": "00000000-0000-4000-a000-000000000004",
       "type": "OVERDUE",
       "text": "Advisor assessment for Team Zeta is overdue. You haven't started it yet.",
@@ -482,7 +417,7 @@
       }
     },
     {
-      "key": "notification:38",
+      "key": "notification:33",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Advisor assessment for Team Epsilon is final: 85.0.",
@@ -495,7 +430,7 @@
       }
     },
     {
-      "key": "notification:39",
+      "key": "notification:34",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Advisor assessment for Team Beta is final: 80.0.",
@@ -508,7 +443,7 @@
       }
     },
     {
-      "key": "notification:40",
+      "key": "notification:35",
       "recipientId": "00000000-0000-4000-a000-000000000005",
       "type": "GRADE_FINAL",
       "text": "Advisor assessment for Team Beta is final: 80.0.",
@@ -521,7 +456,7 @@
       }
     },
     {
-      "key": "notification:41",
+      "key": "notification:36",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Advisor assessment for Team Alpha is final: 90.0.",
@@ -534,7 +469,7 @@
       }
     },
     {
-      "key": "notification:42",
+      "key": "notification:37",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Advisor assessment for Team Gamma is final: 95.0.",
@@ -547,7 +482,7 @@
       }
     },
     {
-      "key": "notification:43",
+      "key": "notification:38",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "DUE_SOON",
       "text": "Advisor assessment for Team Delta is due in 3 days.",
@@ -560,7 +495,7 @@
       }
     },
     {
-      "key": "notification:44",
+      "key": "notification:39",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "DEFENSE_SCHEDULED",
       "text": "Defense scheduled: Team Gamma, day 1 of the defense week, 11:00, Amphi A.",
@@ -573,7 +508,7 @@
       }
     },
     {
-      "key": "notification:45",
+      "key": "notification:40",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "DEFENSE_SCHEDULED",
       "text": "Defense scheduled: Team Epsilon, day 2 of the defense week, 09:00, Amphi A.",
@@ -586,7 +521,7 @@
       }
     },
     {
-      "key": "notification:46",
+      "key": "notification:41",
       "recipientId": "00000000-0000-4000-a000-000000000101",
       "type": "DEFENSE_SCHEDULED",
       "text": "Your defense is scheduled: day 1 of the defense week, 09:00, Amphi A (40 minutes).",
@@ -599,7 +534,7 @@
       }
     },
     {
-      "key": "notification:47",
+      "key": "notification:42",
       "recipientId": "00000000-0000-4000-a000-000000000101",
       "type": "RESULTS_RELEASED",
       "text": "Your Progress report results are available.",
@@ -612,7 +547,7 @@
       }
     },
     {
-      "key": "notification:48",
+      "key": "notification:43",
       "recipientId": "00000000-0000-4000-a000-000000000102",
       "type": "RESULTS_RELEASED",
       "text": "Your Progress report results are available.",
@@ -625,7 +560,7 @@
       }
     },
     {
-      "key": "notification:49",
+      "key": "notification:44",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Progress report for Team Zeta is final: 78.3.",
@@ -638,7 +573,7 @@
       }
     },
     {
-      "key": "notification:50",
+      "key": "notification:45",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Progress report for Team Beta is final: 70.0.",
@@ -651,7 +586,7 @@
       }
     },
     {
-      "key": "notification:51",
+      "key": "notification:46",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Progress report for Team Epsilon is final: 75.0.",
@@ -664,7 +599,7 @@
       }
     },
     {
-      "key": "notification:52",
+      "key": "notification:47",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Progress report for Team Delta is final: 60.0.",
@@ -677,7 +612,7 @@
       }
     },
     {
-      "key": "notification:53",
+      "key": "notification:48",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Progress report for Team Alpha is final: 83.3.",
@@ -690,7 +625,7 @@
       }
     },
     {
-      "key": "notification:54",
+      "key": "notification:49",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Progress report for Team Gamma is final: 88.3.",
@@ -703,7 +638,7 @@
       }
     },
     {
-      "key": "notification:55",
+      "key": "notification:50",
       "recipientId": "00000000-0000-4000-a000-000000000101",
       "type": "RESULTS_RELEASED",
       "text": "Your Proposal presentation results are available.",
@@ -716,7 +651,7 @@
       }
     },
     {
-      "key": "notification:56",
+      "key": "notification:51",
       "recipientId": "00000000-0000-4000-a000-000000000102",
       "type": "RESULTS_RELEASED",
       "text": "Your Proposal presentation results are available.",
@@ -729,7 +664,7 @@
       }
     },
     {
-      "key": "notification:57",
+      "key": "notification:52",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Proposal presentation for Team Zeta is final: 81.3.",
@@ -742,7 +677,7 @@
       }
     },
     {
-      "key": "notification:58",
+      "key": "notification:53",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Proposal presentation for Team Epsilon is final: 79.6.",
@@ -755,7 +690,7 @@
       }
     },
     {
-      "key": "notification:59",
+      "key": "notification:54",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Proposal presentation for Team Delta is final: 62.5.",
@@ -768,7 +703,7 @@
       }
     },
     {
-      "key": "notification:60",
+      "key": "notification:55",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Proposal presentation for Team Gamma is final: 89.6.",
@@ -781,7 +716,7 @@
       }
     },
     {
-      "key": "notification:61",
+      "key": "notification:56",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Proposal presentation for Team Beta is final: 74.2.",
@@ -794,7 +729,7 @@
       }
     },
     {
-      "key": "notification:62",
+      "key": "notification:57",
       "recipientId": "00000000-0000-4000-a000-000000000001",
       "type": "GRADE_FINAL",
       "text": "Proposal presentation for Team Alpha is final: 86.7.",
@@ -807,7 +742,7 @@
       }
     },
     {
-      "key": "notification:63",
+      "key": "notification:58",
       "recipientId": "00000000-0000-4000-a000-000000000002",
       "type": "ASSIGNED",
       "text": "You were assigned to Team Epsilon as a jury member.",
@@ -820,7 +755,7 @@
       }
     },
     {
-      "key": "notification:64",
+      "key": "notification:59",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "ASSIGNED",
       "text": "You were assigned to Team Epsilon as a jury member.",
@@ -833,7 +768,7 @@
       }
     },
     {
-      "key": "notification:65",
+      "key": "notification:60",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "ASSIGNED",
       "text": "You were assigned to Team Gamma as a jury member.",
@@ -846,7 +781,7 @@
       }
     },
     {
-      "key": "notification:66",
+      "key": "notification:61",
       "recipientId": "00000000-0000-4000-a000-000000000006",
       "type": "ASSIGNED",
       "text": "You were assigned to Team Delta as advisor.",

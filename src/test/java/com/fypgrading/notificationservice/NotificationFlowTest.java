@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fypgrading.notificationservice.common.demo.DemoSession;
+import com.fypgrading.notificationservice.common.security.TestTokens;
 import com.fypgrading.notificationservice.demo.DemoCopyService;
 import com.fypgrading.notificationservice.notification.NotificationRepository;
 import java.time.Duration;
@@ -26,7 +27,10 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.JwtRequestPostProcessor;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.postgresql.PostgreSQLContainer;
@@ -191,5 +195,39 @@ class NotificationFlowTest {
         java.util.List<String> teams = com.jayway.jsonpath.JsonPath.read(history, "$.content[*].link.teamId");
         assertThat(teams).isNotEmpty().allMatch(beta.toString()::equals);
         assertThat(history).contains("Problem formulation");
+    }
+
+    @DynamicPropertySource
+    static void realTokenKeys(DynamicPropertyRegistry registry) {
+        registry.add("spring.security.oauth2.resourceserver.jwt.jwk-set-uri", TestTokens::jwkSetUri);
+    }
+
+    /** A signed token through the real decoder (not the jwt() shortcut), as the gateway forwards it. */
+    private ResultActions withToken(String token) throws Exception {
+        return mvc.perform(
+                get("/api/notifications").header("X-Demo-Session", session).header("Authorization", "Bearer " + token));
+    }
+
+    @Test
+    void aSignedTokenFromOurIssuerToOurClientIsAccepted() throws Exception {
+        int status = withToken(TestTokens.token(TestTokens.ISSUER, TestTokens.CLIENT, "REVIEWER"))
+                .andReturn()
+                .getResponse()
+                .getStatus();
+        assertThat(status).isNotIn(401, 403);
+    }
+
+    @Test
+    void aTokenFromAnotherIssuerIsRejected() throws Exception {
+        withToken(TestTokens.token("http://elsewhere.test/realms/assay", TestTokens.CLIENT, "REVIEWER"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.code").value("unauthenticated"));
+    }
+
+    @Test
+    void aTokenIssuedToAnotherClientIsRejected() throws Exception {
+        withToken(TestTokens.token(TestTokens.ISSUER, "admin-cli", "REVIEWER"))
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.code").value("unauthenticated"));
     }
 }
